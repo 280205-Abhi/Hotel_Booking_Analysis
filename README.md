@@ -49,15 +49,11 @@ This project answers four core business questions:
 ```
 hotel-booking-analysis/
 │
-├── anaconda_projects
-├── data
-    ├── hotel_bookings.csv               # Raw dataset
 ├── hotel_booking_analysis.ipynb     # Main Jupyter notebook
 ├── README.md                        # This file
 ├── requirements.txt                         
 ├── Report.docx                      # Full project report
-│
-└── outputs/                         # Generated charts
+└── images/                         # Generated charts
     ├── 01_booking_by_hotel.png
     ├── 02_top10_countries.png
     ├── 03_market_segment.png
