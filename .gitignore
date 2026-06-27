@@ -1,21 +1,46 @@
+# ── Data ──────────────────────────────────────
+# Raw dataset stays local / linked in README, not pushed (Kaggle source)
 data/
 *.csv
 
+# ── Jupyter ───────────────────────────────────
 .ipynb_checkpoints/
 *-checkpoint.ipynb
 
+# ── Python ────────────────────────────────────
 __pycache__/
 *.py[cod]
+*$py.class
+*.egg-info/
+.eggs/
 
+# ── Virtual environments ─────────────────────
 venv/
 env/
+ENV/
 .venv/
 
+# ── IDE / Editor ──────────────────────────────
 .idea/
 .vscode/
+*.swp
 
+# ── Anaconda ──────────────────────────────────
 anaconda_projects/
 
+# ── OS files ──────────────────────────────────
 .DS_Store
 Thumbs.db
+
+# Allow these specific PNGs inside the outputs folder
+!outputs/05_hotel_vise_reservation_status.png
+!outputs/08_correlation_heatmap.png
+!outputs/12_revenue_by_cancellation_status.png
+!outputs/13_month_booking_trend.png
+
+# ── Outputs ──
+# Ignore all PNGs inside the outputs folder
+outputs/*.png
+
+# ── Environment / secrets ─────────────────────
 .env

@@ -1,24 +1,22 @@
-
-raw
-Readme · MD
 # 🏨 Hotel Booking Analysis
- 
-A complete end-to-end **Exploratory Data Analysis (EDA)** project on hotel booking data covering 86,634 bookings across two hotel types (Resort Hotel and City Hotel) from 2015 to 2017.
- 
+
+A complete end-to-end **Exploratory Data Analysis (EDA)** project on hotel booking data covering 86,634 bookings across two hotel types (Resort Hotel and City Hotel) from 2015 to 2017 — uncovering what drives cancellations, where revenue is being lost, and when demand peaks.
+
 ---
- 
+
 ## 📌 Project Overview
- 
+
 This project answers four core business questions:
- 
+
 1. **Customer Behaviour** — Who books, how, and from where?
 2. **Cancellation Drivers** — What causes and what prevents cancellations?
 3. **Revenue Factors** — What drives hotel revenue?
 4. **Seasonality & Revenue Peaks** — When is revenue highest and how do cancellations behave at that time?
+
 ---
- 
+
 ## 📊 Dataset
- 
+
 | Detail | Value |
 |--------|-------|
 | Source | [Hotel Booking Demand — Kaggle](https://www.kaggle.com/datasets/jessemostipak/hotel-booking-demand) |
@@ -27,9 +25,9 @@ This project answers four core business questions:
 | Columns | 32 |
 | Period | July 2015 – August 2017 |
 | Hotel types | Resort Hotel, City Hotel |
- 
+
 ### Key Stats (Post-Cleaning)
- 
+
 | Metric | Value |
 |--------|-------|
 | Cancellation Rate | 27.7% |
@@ -41,38 +39,66 @@ This project answers four core business questions:
 | Top Booking Segment | Online TA |
 | Top Guest Country | Portugal (PRT) |
 | Peak Revenue Month | August |
- 
+
 ---
- 
+
+## 📈 Visual Highlights
+
+**What drives cancellations — correlation heatmap**
+![Cancellation Correlation Heatmap](images/08_correlation_heatmap.png)
+
+**Revenue earned vs revenue lost to cancellations**
+![Revenue vs Lost Revenue](images/12_revenue_by_cancellation_status.png)
+
+**Seasonality — bookings rate by month**
+![Seasonality Dual Axis](images/13_month_booking_trend.png)
+
+**Hotel Wise Cancellation - Which Hotel has most cancellations and reservatuions**
+![Feature Importance](images/05_hotel_vise_reservation_status.png)
+
+*More charts in the [images/](images/) folder and full walkthrough in the [notebook](notebooks/hotel_booking_analysis.ipynb).*
+
+---
+
 ## 🗂️ Project Structure
- 
+
 ```
 hotel-booking-analysis/
 │
-├── hotel_booking_analysis.ipynb     # Main Jupyter notebook
-├── README.md                        # This file
-├── requirements.txt                         
-├── Report.docx                      # Full project report
-└── images/                         # Generated charts
-    ├── 01_booking_by_hotel.png
-    ├── 02_top10_countries.png
-    ├── 03_market_segment.png
-    ├── 04_lead_time_distribution.png
-    ├── 05_cancellation_by_deposit.png
-    ├── 06_cancellation_by_segment.png
-    ├── 07_cancellation_heatmap.png
-    ├── 08_adr_by_room_type.png
-    ├── 09_revenue_vs_lost.png
-    ├── 10_monthly_adr_trend.png
-    ├── 11_seasonality_dual_axis.png
-    ├── 12_choropleth_map.png
-    └── 13_feature_importance.png
+├── notebooks/
+│   └── hotel_booking_analysis.ipynb   # Main Jupyter notebook
+│
+├── reports/
+│   └── Hotel_Booking_Analysis_Report.docx   # Full written report
+│
+├── images/                            # Exported charts (referenced above + more)
+│   ├── 01_bookings_distribution.png
+│   ├── 02_top_10_countries.png
+│   ├── 03_market_segment.png
+│   ├── 04_repeated_guest.png
+│   ├── 05_hotel_vise_reservation_status.png
+│   ├── 06_lead_time_cancellation.png
+│   ├── 07_lead_time_cancellation_line.png
+│   ├── 08_correlation_heatmap.png
+│   ├── 09_hotel_revenue.png
+│   ├── 10_revenue_by_room.png
+│   ├── 11_revenue_by_total_nights.png
+│   ├── 12_revenue_by_cancellation_status.png
+│   ├── 13_month_booking_trend.png
+│   ├── 14_repeated_guest_cancellation.png
+│   └── 15_guest_stay_length.png
+│
+├── data/                              # Not tracked in git — see Dataset section
+│   └── hotel_bookings.csv
+│
+├── README.md
+└── requirements.txt
 ```
- 
+
 ---
- 
+
 ## 📓 Notebook Structure
- 
+
 | Section | Title | Description |
 |---------|-------|-------------|
 | 01 | Data Loading & Exploration | Shape, dtypes, null check, duplicates |
@@ -85,11 +111,11 @@ hotel-booking-analysis/
 | 08 | Guest Profile & Loyalty | Lead time impact, repeat vs new, country map |
 | 09 | Cancellation Prediction | Logistic Regression, feature importance, ROC curve |
 | 10 | Findings & Recommendations | Key insights and business actions |
- 
+
 ---
- 
+
 ## 🛠️ Tech Stack
- 
+
 | Tool | Purpose |
 |------|---------|
 | Python 3.x | Core language |
@@ -100,38 +126,41 @@ hotel-booking-analysis/
 | Plotly Express | Interactive charts, choropleth map |
 | Scikit-learn | Logistic regression model |
 | Jupyter Notebook | Development environment |
- 
+
 ---
- 
+
 ## ⚙️ Setup & Installation
- 
+
 ### 1. Clone the repository
 ```bash
-git clone https://github.com/yourusername/hotel-booking-analysis.git
+git clone https://github.com/280205-Abhi/hotel-booking-analysis.git
 cd hotel-booking-analysis
 ```
- 
+
 ### 2. Create a virtual environment (recommended)
 ```bash
 python -m venv venv
 source venv/bin/activate        # Mac/Linux
 venv\Scripts\activate           # Windows
 ```
- 
+
 ### 3. Install dependencies
 ```bash
-pip install pandas numpy matplotlib seaborn plotly scikit-learn jupyter
+pip install -r requirements.txt
 ```
- 
-### 4. Launch the notebook
+
+### 4. Get the dataset
+Download `hotel_bookings.csv` from [Kaggle](https://www.kaggle.com/datasets/jessemostipak/hotel-booking-demand) and place it inside the `data/` folder.
+
+### 5. Launch the notebook
 ```bash
-jupyter notebook hotel_booking_analysis.ipynb
+jupyter notebook notebooks/hotel_booking_analysis.ipynb
 ```
- 
+
 ---
- 
+
 ## 🔑 Key Data Cleaning Steps
- 
+
 | Issue | Fix Applied |
 |-------|------------|
 | 31,994 duplicate rows (26.8%) | Dropped — completely identical across all 32 columns |
@@ -142,11 +171,11 @@ jupyter notebook hotel_booking_analysis.ipynb
 | `adr` negative values | Dropped rows where adr < 0 |
 | Zero-guest rows | Dropped rows where adults + children + babies = 0 |
 | Zero-night stays | Dropped rows where total_nights = 0 |
- 
+
 ---
- 
+
 ## 🔧 Engineered Features
- 
+
 | Feature | Formula / Logic |
 |---------|----------------|
 | `total_nights` | `stays_in_weekend_nights + stays_in_week_nights` |
@@ -158,11 +187,11 @@ jupyter notebook hotel_booking_analysis.ipynb
 | `lead_time_bucket` | Binned: Same-day / Last-minute / Short / Medium / Long / Very Long |
 | `room_match` | 1 if reserved_room_type == assigned_room_type else 0 |
 | `is_high_season` | 1 for June–September, 0 otherwise |
- 
+
 ---
- 
+
 ## 💡 Key Findings
- 
+
 - **27.7% cancellation rate** after cleaning — City Hotel cancels more than Resort Hotel
 - **€11.48M revenue lost** to cancellations — 33.3% of potential total revenue
 - **August** is the peak revenue month; cancellation rate also rises during this period
@@ -171,27 +200,31 @@ jupyter notebook hotel_booking_analysis.ipynb
 - **Repeat guests** cancel at a much lower rate than first-time guests (3.6% repeat rate overall)
 - **Special requests** are the strongest negative predictor of cancellation
 - **Lead time** is the strongest positive predictor — longer lead = higher cancel risk
+
 ---
- 
+
 ## 📈 Business Recommendations
- 
+
 1. **Overbooking strategy** for peak months (Jul–Aug) to offset anticipated cancellations
 2. **Loyalty programme** to convert first-time Transient guests into repeat customers
 3. **Prompt special requests** at booking time — reduces cancellation probability significantly
 4. **Review OTA cancellation policies** — negotiate stricter terms with Online TA partners
 5. **Targeted email reminders** at 90, 30, and 7 days for long lead-time bookings
 6. **Re-examine deposit policy** — Non Refund deposits are not reducing cancellations as expected
+
 ---
- 
+
 ## 👤 Author
- 
+
 **Abhinav Dasari**
 B.Tech Information Technology — 4th Year
 Campus Placement Project | June–July 2026
- 
+
+[GitHub](https://github.com/280205-Abhi) · [LinkedIn](https://www.linkedin.com/in/abhinavdasari28/)
+
 ---
- 
+
 ## 📄 License
- 
+
 This project is for educational and portfolio purposes.
 Dataset credit: [Antonio, Almeida & Nunes, 2019](https://www.sciencedirect.com/science/article/pii/S2352340918315191)
