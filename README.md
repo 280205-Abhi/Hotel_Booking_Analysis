@@ -218,7 +218,7 @@ jupyter notebook notebooks/hotel_booking_analysis.ipynb
 
 **Abhinav Dasari**
 B.Tech Information Technology — 4th Year
-Campus Placement Project | June–July 2026
+Campus Placement Project | June 2026
 
 [GitHub](https://github.com/280205-Abhi) · [LinkedIn](https://www.linkedin.com/in/abhinavdasari28/)
 
